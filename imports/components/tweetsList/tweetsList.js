@@ -9,7 +9,7 @@ class TweetsListCtrl {
     $scope.viewModel(this);
 
     this.helpers({
-      tasks() {
+      tweets() {
         return Tweets.find({});
       }
     })
