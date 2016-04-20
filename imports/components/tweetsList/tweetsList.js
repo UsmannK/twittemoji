@@ -3,7 +3,7 @@ import angularMeteor from 'angular-meteor';
 import { Tweets } from '../../api/tweets.js';
 import template from './tweetsList.html';
 
-class TodosListCtrl {
+class TweetsListCtrl {
 
   constructor($scope) {
     $scope.viewModel(this);

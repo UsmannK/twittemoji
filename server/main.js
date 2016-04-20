@@ -15,9 +15,9 @@ twit.stream('statuses/filter', {
   }, function(stream) {
   stream.on('data', Meteor.bindEnvironment( function(data) {
     console.log(data['text']);
-    Tweets.insert({
+    /*Tweets.insert({
       text: data['text'],
       createdAt: data['timestamp_ms']
-    });
+    });*/
   }));
 });
