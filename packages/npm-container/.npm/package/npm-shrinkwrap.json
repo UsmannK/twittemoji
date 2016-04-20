@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "twitter": {
+      "version": "0.2.9",
+      "resolved": "https://registry.npmjs.org/twitter/-/twitter-0.2.9.tgz",
+      "from": "twitter@0.2.9",
+      "dependencies": {
+        "cookies": {
+          "version": "0.6.1",
+          "resolved": "https://registry.npmjs.org/cookies/-/cookies-0.6.1.tgz",
+          "from": "cookies@>=0.1.6",
+          "dependencies": {
+            "depd": {
+              "version": "1.1.0",
+              "resolved": "https://registry.npmjs.org/depd/-/depd-1.1.0.tgz",
+              "from": "depd@>=1.1.0 <1.2.0"
+            }
+          }
+        },
+        "keygrip": {
+          "version": "1.0.1",
+          "resolved": "https://registry.npmjs.org/keygrip/-/keygrip-1.0.1.tgz",
+          "from": "keygrip@>=0.1.7"
+        },
+        "oauth": {
+          "version": "0.9.14",
+          "resolved": "https://registry.npmjs.org/oauth/-/oauth-0.9.14.tgz",
+          "from": "oauth@>=0.8.4"
+        }
+      }
+    }
+  }
+}

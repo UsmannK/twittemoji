@@ -1,8 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import todosList from '../imports/components/todosList/todosList';
+import todosList from '../imports/components/tweetsList/tweetsList';
 
-angular.module('simple-todos', [
+angular.module('simple-tweets', [
   angularMeteor,
-  todosList.name
+  tweetsList.name
 ]);

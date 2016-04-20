@@ -1,4 +1,5 @@
-import '../imports/api/tasks.js';
+import '../imports/api/tweets.js';
+import { Tweets } from '../imports/api/tweets.js';
 
 var Twitter = Meteor.npmRequire("twitter");
 var conf = JSON.parse(Assets.getText('twitter.json'));
@@ -10,9 +11,13 @@ var twit = new Twitter({
 });
 
 twit.stream('statuses/filter', {
-  'track': conf.hashtag
-}, function(stream) {
-  stream.on('data', function(data) {
-    console.log(data);
-  });
+  'locations': '-180,-90, 180, 90'
+  }, function(stream) {
+  stream.on('data', Meteor.bindEnvironment( function(data) {
+    console.log(data['text']);
+    Tweets.insert({
+      text: data['text'],
+      createdAt: data['timestamp_ms']
+    });
+  }));
 });
