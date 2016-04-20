@@ -2,6 +2,10 @@
   <h1>Tweets List</h1>
 </header>
 
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+	<ui-gmap-markers models="markers" coords="'coords'" idKey="'idKey'">
+	</ui-gmap-markers>
+</ui-gmap-google-map>
 <ul>
   <li ng-repeat="tweet in $ctrl.tweets">
     {{tweet.text}}

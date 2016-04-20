@@ -6,6 +6,25 @@ import template from './tweetsList.html';
 class TweetsListCtrl {
 
   constructor($scope) {
+
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 1 };
+
+    $scope.markers = [];
+    $scope.markers.push({
+            idKey: 1,
+              coords: {
+                latitude: 36.132411,
+                longitude: -80.290481
+        }});  
+
+    $scope.markers.push({
+            idKey: 2,
+              coords: {
+                latitude: 32.132411,
+                longitude: -80.290481
+        }});           
+
+
     $scope.viewModel(this);
 
     this.helpers({
