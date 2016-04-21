@@ -67,7 +67,6 @@ function streamTweets() {
             'coords': doc['coords']
           }
         });
-        console.log(doc);
       }
     }));
   });
