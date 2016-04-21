@@ -9,6 +9,14 @@ class TweetsListCtrl {
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 2 };
 
+
+    $scope.viewmode="recent";
+
+    $scope.changeDisplayMode = function(newMode)
+    {
+       $scope.viewmode = newMode; 
+    }
+
     $scope.markers = [];
     $scope.markers.push({
             _id: 1,
