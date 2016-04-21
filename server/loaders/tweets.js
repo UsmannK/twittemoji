@@ -1,4 +1,5 @@
 import { Tweets } from '../../imports/api/tweets.js';
+import { PopularTweets } from '../../imports/api/tweets.js';
 
 var Twitter = Meteor.npmRequire("twitter");
 var conf = JSON.parse(Assets.getText('twitter.json'));
@@ -30,8 +31,9 @@ function e2u(str){
 }
 
 function createDocument(data) {
+  if(!data.hasOwnProperty('text'))
+    return null;
   var emoji_matches = data['text'].match(emojiRegex);
-  
   if(emoji_matches != null) { 
     var emoji = emoji_matches[0];
     var country_code = data['place']['country_code'];
@@ -56,8 +58,13 @@ function streamTweets() {
     'locations': '-180,-90, 180, 90'
   }, function(stream) {
     stream.on('data', Meteor.bindEnvironment( function(data) {
+      var num = Math.floor((Math.random() * 10) + 1);
+      if(num >= 5)
+        return;
+
       var doc = createDocument(data);
       if(doc != null) {
+        console.log(doc);
         Tweets.upsert({
           'country':doc['country']
         }, { 
@@ -66,9 +73,19 @@ function streamTweets() {
             'emoji': doc['emoji'],
             'coords': doc['coords'],
             'icon': "/images/emoji/"+doc['emoji']+".png"
-            // 'icon': { 'url': "/images/emoji/"+doc['emoji']+".png", 'scaledSize': 1}
           }
         });
+
+        /*PopularTweets.upsert({
+          'country':doc['country']
+        }, { 
+          $set:{
+            'country': doc['country'],
+            'emoji': doc['emoji'],
+            'coords': doc['coords'],
+            'icon': "/images/emoji/"+doc['emoji']+".png"
+          }
+        });*/
       }
     }));
   });
