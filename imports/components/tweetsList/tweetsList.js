@@ -9,21 +9,29 @@ class TweetsListCtrl {
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 1 };
 
+
     $scope.markers = [];
     $scope.markers.push({
             idKey: 1,
-              coords: {
-                latitude: 36.132411,
-                longitude: -80.290481
-        }});  
-
+            emoji: '1f609',
+            coords: {
+              latitude: 36.132411,
+              longitude: -80.290481
+            }
+      });  
     $scope.markers.push({
             idKey: 2,
+            emoji: '1f607',
               coords: {
                 latitude: 32.132411,
-                longitude: -80.290481
+                longitude: 80.290481
         }});           
 
+    $scope.markers.forEach(function(each)
+    {
+      //todo: mongo virtual
+      each.icon = "/images/emoji/"+each.emoji+".png"
+    });
 
     $scope.viewModel(this);
 
