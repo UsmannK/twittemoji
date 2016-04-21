@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Tweets } from '../../api/tweets.js';
+import { PopularTweets } from '../../api/tweets.js';
 import template from './tweetsList.html';
 
 class TweetsListCtrl {
@@ -45,6 +46,9 @@ class TweetsListCtrl {
     this.helpers({
       tweets() {
         return Tweets.find({});
+      },
+      populartweets() {
+        return PopularTweets.find({});
       }
     })
   }
