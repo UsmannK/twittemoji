@@ -67,7 +67,6 @@ function streamTweets() {
 
       var doc = createDocument(data);
       if(doc != null) {
-        console.log(doc);
         var emojiCode = doc['emoji'];
         var field = "emoji." + emojiCode;
         var inc = {};
@@ -86,6 +85,9 @@ function streamTweets() {
         PopularTweets.upsert({
           'country':doc['country']
         }, { 
+          $set: {
+            'coords':doc['coords']
+          },
           $inc: inc 
         });
 
