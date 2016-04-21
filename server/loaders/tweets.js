@@ -69,7 +69,6 @@ function streamTweets() {
             // 'icon': { 'url': "/images/emoji/"+doc['emoji']+".png", 'scaledSize': 1}
           }
         });
-        console.log(doc);
       }
     }));
   });
