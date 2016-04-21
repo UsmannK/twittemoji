@@ -106,7 +106,7 @@ function streamTweets() {
           'country':doc['country']
         }, {
           $set:{
-            'icon': "/images/emoji"+doc['emoji']+".png"
+            'icon': "/images/emoji/"+doc['emoji']+".png"
           }
         });
 
