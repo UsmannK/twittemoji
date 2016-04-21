@@ -64,7 +64,9 @@ function streamTweets() {
           $set:{
             'country': doc['country'],
             'emoji': doc['emoji'],
-            'coords': doc['coords']
+            'coords': doc['coords'],
+            'icon': "/images/emoji/"+doc['emoji']+".png"
+            // 'icon': { 'url': "/images/emoji/"+doc['emoji']+".png", 'scaledSize': 1}
           }
         });
         console.log(doc);

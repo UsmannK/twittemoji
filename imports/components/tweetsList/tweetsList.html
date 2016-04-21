@@ -1,17 +1,10 @@
 <header>
   <h1>Tweets List</h1>
 
-hi
-<pre>
-{{markers}}
-</pre>
-<pre>
-{{$ctrl.tweets}}
-</pre>
 </header>
 
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-	<ui-gmap-markers models="markers" coords="'coords'" idKey="'_id'"   icon="'icon'"
+	<ui-gmap-markers models="$ctrl.tweets" coords="'coords'" idKey="'_id'"   icon="'icon'"
 >
 	</ui-gmap-markers>
 </ui-gmap-google-map>

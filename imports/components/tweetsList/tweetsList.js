@@ -7,7 +7,7 @@ class TweetsListCtrl {
 
   constructor($scope) {
 
-    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 1 };
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 2 };
 
     $scope.markers = [];
     $scope.markers.push({
