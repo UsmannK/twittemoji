@@ -3,8 +3,19 @@
 
 </header>
 
+<h4>View Mode:</h4> <div class="btn-group btn-toggle" data-toggle="buttons">
+      <label class="btn" ng-class="viewmode =='popular' ? 'btn-primary' : 'btn-default'">
+        <input type="radio" name="options" value="option1" ng-click="changeDisplayMode('popular')"> Popular
+      </label>
+      <label class="btn" ng-class="viewmode =='recent' ? 'btn-primary' : 'btn-default'">
+        <input type="radio" name="options" value="option2" ng-click="changeDisplayMode('recent')"> Recent
+      </label>
+</div>
+
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-	<ui-gmap-markers models="$ctrl.tweets" coords="'coords'" idKey="'_id'"   icon="'icon'"
->
+	<ui-gmap-markers ng-if="viewmode == 'recent'" models="$ctrl.tweets" coords="'coords'" idKey="'_id'"   icon="'icon'">
+	</ui-gmap-markers>
+
+	<ui-gmap-markers ng-if="viewmode == 'popular'" models="$ctrl.populartweets" coords="'coords'" idKey="'_id'"   icon="'icon'">
 	</ui-gmap-markers>
 </ui-gmap-google-map>
