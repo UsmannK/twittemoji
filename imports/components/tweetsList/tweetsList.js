@@ -9,10 +9,9 @@ class TweetsListCtrl {
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 1 };
 
-
     $scope.markers = [];
     $scope.markers.push({
-            idKey: 1,
+            _id: 1,
             emoji: '1f609',
             coords: {
               latitude: 36.132411,
@@ -20,7 +19,7 @@ class TweetsListCtrl {
             }
       });  
     $scope.markers.push({
-            idKey: 2,
+            _id: 2,
             emoji: '1f607',
               coords: {
                 latitude: 32.132411,
