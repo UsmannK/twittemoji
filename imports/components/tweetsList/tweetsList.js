@@ -25,8 +25,7 @@ function exec()
   }
 
   $scope.data =[arr];
-  console.log("hi");
-  setTimeout(exec, 1400);
+  setTimeout(exec, 2000+Math.round(Math.random()*1000));
 }
 
 exec();

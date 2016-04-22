@@ -1,5 +1,6 @@
 import { Tweets } from '../../imports/api/tweets.js';
 import { PopularTweets } from '../../imports/api/tweets.js';
+import { AllEmoji } from '../../imports/api/tweets.js';
 
 var num = 0;
 var Twitter = Meteor.npmRequire("twitter");
@@ -94,21 +95,32 @@ function streamTweets() {
         var maxNum = 0;
         var maxCode;
         var emojis = PopularTweets.findOne({'country':doc['country']});
-        for(var key in emojis) {
-          var num = emojis[key];
+        for(var key in emojis['emoji']) {
+          //console.log(" --" + key + " -- " + emojis['emoji'][key] + "-- ");
+          var num = emojis['emoji'][key];
           if(num > maxNum) {
             maxNum = num;
             maxCode = key;
           }
         }
-        
+        //console.log("("+maxCode+")");
         PopularTweets.upsert({
           'country':doc['country']
         }, {
           $set:{
-            'icon': "/images/emoji/"+doc['emoji']+".png"
+            'icon': "/images/emoji/"+maxCode+".png"
           }
         });
+
+      
+        AllEmoji.upsert({
+          'emoji':doc['emoji']
+        },{
+          $inc: {val:1}
+        });
+        
+        var top = AllEmoji.find({val:1});
+        console.log(top);
 
       }
     }));
