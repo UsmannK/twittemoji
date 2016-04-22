@@ -11,7 +11,7 @@ class TweetsListCtrl {
 
     // $scope.opts = {scaleBeginAtZero:false};
 
-    $scope.labels = ['russia','china','usa','uk','russia','china','usa','uk','russia','china','usa','uk','russia','china','usa','uk'];
+    $scope.labels = ['russia','china','usa','uk','argentina','japan','brazil','south africa','austrailia'];
   $scope.series = ['Series A'];
 
 
@@ -20,7 +20,7 @@ class TweetsListCtrl {
 function exec()
 {
   var arr = [];
-  for (var i=0, t=40; i<t; i++) {
+  for (var i=0, t=9; i<t; i++) {
       arr.push(Math.round(Math.random() * t))
   }
 
