@@ -11,13 +11,25 @@ class TweetsListCtrl {
 
     // $scope.opts = {scaleBeginAtZero:false};
 
-    $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  $scope.series = ['Series A', 'Series B'];
+    $scope.labels = ['russia','china','usa','uk','russia','china','usa','uk','russia','china','usa','uk','russia','china','usa','uk'];
+  $scope.series = ['Series A'];
 
-  $scope.data = [
-    [65, -59, 80, 81, 56, -55, 40],
-    [28, 48, -40, 19, 86, 27, 90]
-  ];
+
+
+  
+function exec()
+{
+  var arr = [];
+  for (var i=0, t=40; i<t; i++) {
+      arr.push(Math.round(Math.random() * t))
+  }
+
+  $scope.data =[arr];
+  console.log("hi");
+  setTimeout(exec, 1400);
+}
+
+exec();
 
 
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 2 };
@@ -29,29 +41,6 @@ class TweetsListCtrl {
     {
        $scope.viewmode = newMode; 
     }
-
-    $scope.markers = [];
-    $scope.markers.push({
-            _id: 1,
-            emoji: '1f609',
-            coords: {
-              latitude: 36.132411,
-              longitude: -80.290481
-            }
-      });  
-    $scope.markers.push({
-            _id: 2,
-            emoji: '1f607',
-              coords: {
-                latitude: 32.132411,
-                longitude: 80.290481
-        }});           
-
-    $scope.markers.forEach(function(each)
-    {
-      //todo: mongo virtual
-      each.icon = "/images/emoji/"+each.emoji+".png"
-    });
 
     $scope.viewModel(this);
 
