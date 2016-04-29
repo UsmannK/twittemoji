@@ -13,4 +13,12 @@ angular.module('simple-tweets', [
   'chart.js'
 ]);
 
+function onReady() {
+  angular.bootstrap(document, ['simple-tweets']);
+}
 
+if (Meteor.isCordova) {
+    angular.element(document).on('deviceready', onReady);
+} else {
+    angular.element(document).ready(onReady);
+}

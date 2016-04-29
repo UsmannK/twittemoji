@@ -1,6 +1,5 @@
 import { Tweets } from '../../imports/api/tweets.js';
 import { PopularTweets } from '../../imports/api/tweets.js';
-import { AllEmoji } from '../../imports/api/tweets.js';
 
 var num = 0;
 var Twitter = Meteor.npmRequire("twitter");
@@ -72,6 +71,9 @@ function streamTweets() {
         var field = "emoji." + emojiCode;
         var inc = {};
         inc[field] = 1;
+        
+        var incCount = {};
+        incCount['count'] = 1;
         Tweets.upsert({
           'country':doc['country']
         }, { 
@@ -80,7 +82,8 @@ function streamTweets() {
             'emoji': doc['emoji'],
             'coords': doc['coords'],
             'icon': "/images/emoji/"+doc['emoji']+".png"
-          }
+          },
+          $inc: incCount
         });
 
         PopularTweets.upsert({
@@ -111,16 +114,6 @@ function streamTweets() {
             'icon': "/images/emoji/"+maxCode+".png"
           }
         });
-
-      
-        AllEmoji.upsert({
-          'emoji':doc['emoji']
-        },{
-          $inc: {val:1}
-        });
-        
-        var top = AllEmoji.find({val:1});
-        console.log(top);
 
       }
     }));
