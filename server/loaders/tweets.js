@@ -5,6 +5,7 @@ var num = 0;
 var Twitter = Meteor.npmRequire("twitter");
 var conf = JSON.parse(Assets.getText('twitter.json'));
 var country_locs = JSON.parse(Assets.getText('country_locs.json'));
+var emojiVals  = JSON.parse(Assets.getText('emojiVals.json'));
 var emojiRegex = /([\uD800-\uDBFF][\uDC00-\uDFFF])/;
 var twit = new Twitter({
   consumer_key: conf.consumer.key,
@@ -71,7 +72,7 @@ function streamTweets() {
         var field = "emoji." + emojiCode;
         var inc = {};
         inc[field] = 1;
-        
+         
         var incCount = {};
         incCount['count'] = 1;
         Tweets.upsert({
@@ -85,6 +86,18 @@ function streamTweets() {
           },
           $inc: incCount
         });
+
+        var sent = calcSentiment(emojiCode);
+
+        if(sent != null) {
+          Tweets.upsert({
+            'country':doc['country']
+          }, {
+            $set:{
+              'sentiment': sent
+            }
+          });
+        }
 
         PopularTweets.upsert({
           'country':doc['country']
@@ -118,6 +131,14 @@ function streamTweets() {
       }
     }));
   });
+}
+
+function calcSentiment(emojiCode) {
+  if(emojiVals.hasOwnProperty(emojiCode)) {
+    return emojiVals[emojiCode];
+  } else {
+    return null;
+  }
 }
 
 export default function() { 

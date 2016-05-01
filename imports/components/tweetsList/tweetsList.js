@@ -30,9 +30,12 @@ class TweetsListCtrl {
 
   Meteor.autorun(function() {
    $scope.labels = [];
-   var countryCursor = Tweets.find({}, {limit: 10, fields: {'country':1}, sort:{count: -1}});
+   $scope.data = [];
+   var countryCursor = Tweets.find({sentiment: {$exists: true}}, {limit: 10, fields: {'country':1, 'sentiment':1}, sort:{count: -1}});
+   var i = 0;
    countryCursor.forEach(function(data) {
-     $scope.labels.push(data.country);
+     $scope.data[i] = data.sentiment;
+     $scope.labels[i++] = data.country;
    });
   }); 
  
