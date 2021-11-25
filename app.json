@@ -8,8 +8,9 @@
         }
     ],
     "env": {
-        "HEROKU_APP_NAME": {
-            "required": true
+        "ROOT_URL": {
+            "required": true,
+            "description": "https://<app_name>.herokuapp.com"
         },
         "MONGO_URL": {
             "description": "MongoDB connection string"
