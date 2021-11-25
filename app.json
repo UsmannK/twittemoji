@@ -9,7 +9,7 @@
     ],
     "env": {
         "HEROKU_APP_NAME": {
-          "required": true
+            "required": true
         },
         "MONGO_URL": {
             "description": "MongoDB connection string"
@@ -28,6 +28,6 @@
         },
         "TWITTER_HASHTAG": {
             "description": "Twitter Hashtag"
-        },                                
+        }
     }
 }
