@@ -1,0 +1,33 @@
+{
+    "name": "twittermoji",
+    "description": "A webapp to display twitter emoji on a map",
+    "repository": "https://github.com/UsmannK/twittemoji",
+    "buildpacks": [
+        {
+            "url": "https://github.com/AdmitHub/meteor-buildpack-horse.git"
+        }
+    ],
+    "env": {
+        "HEROKU_APP_NAME": {
+          "required": true
+        },
+        "MONGO_URL": {
+            "description": "MongoDB connection string"
+        },
+        "TWITTER_CONSUMER_KEY": {
+            "description": "Twitter API Consumer Key"
+        },
+        "TWITTER_CONSUMER_SECRET": {
+            "description": "Twitter API Consumer Secret Key"
+        },
+        "TWITTER_ACCESS_TOKEN_KEY": {
+            "description": "Twitter API Access Token Key"
+        },
+        "TWITTER_ACCESS_TOKEN_SECRET": {
+            "description": "Twitter API Access Token Secret Key"
+        },
+        "TWITTER_HASHTAG": {
+            "description": "Twitter Hashtag"
+        },                                
+    }
+}
