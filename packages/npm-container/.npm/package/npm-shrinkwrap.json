@@ -1,33 +1,35 @@
 {
+  "lockfileVersion": 1,
   "dependencies": {
+    "cookies": {
+      "version": "0.8.0",
+      "resolved": "https://registry.npmjs.org/cookies/-/cookies-0.8.0.tgz",
+      "integrity": "sha512-8aPsApQfebXnuI+537McwYsDtjVxGm8gTIzQI3FDW6t5t/DAhERxtnbEPN/8RX+uZthoz4eCOgloXaE5cYyNow=="
+    },
+    "depd": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz",
+      "integrity": "sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw=="
+    },
+    "keygrip": {
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/keygrip/-/keygrip-1.1.0.tgz",
+      "integrity": "sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ=="
+    },
+    "oauth": {
+      "version": "0.9.15",
+      "resolved": "https://registry.npmjs.org/oauth/-/oauth-0.9.15.tgz",
+      "integrity": "sha1-vR/vr2hslrdUda7VGWQS/2DPucE="
+    },
+    "tsscmp": {
+      "version": "1.0.6",
+      "resolved": "https://registry.npmjs.org/tsscmp/-/tsscmp-1.0.6.tgz",
+      "integrity": "sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA=="
+    },
     "twitter": {
       "version": "0.2.9",
       "resolved": "https://registry.npmjs.org/twitter/-/twitter-0.2.9.tgz",
-      "from": "https://registry.npmjs.org/twitter/-/twitter-0.2.9.tgz",
-      "dependencies": {
-        "cookies": {
-          "version": "0.6.1",
-          "resolved": "https://registry.npmjs.org/cookies/-/cookies-0.6.1.tgz",
-          "from": "https://registry.npmjs.org/cookies/-/cookies-0.6.1.tgz",
-          "dependencies": {
-            "depd": {
-              "version": "1.1.0",
-              "resolved": "https://registry.npmjs.org/depd/-/depd-1.1.0.tgz",
-              "from": "https://registry.npmjs.org/depd/-/depd-1.1.0.tgz"
-            }
-          }
-        },
-        "keygrip": {
-          "version": "1.0.1",
-          "resolved": "https://registry.npmjs.org/keygrip/-/keygrip-1.0.1.tgz",
-          "from": "https://registry.npmjs.org/keygrip/-/keygrip-1.0.1.tgz"
-        },
-        "oauth": {
-          "version": "0.9.14",
-          "resolved": "https://registry.npmjs.org/oauth/-/oauth-0.9.14.tgz",
-          "from": "https://registry.npmjs.org/oauth/-/oauth-0.9.14.tgz"
-        }
-      }
+      "integrity": "sha1-ZwaUfhUbSkNDAeCTRKv5GpKXsI0="
     }
   }
 }
